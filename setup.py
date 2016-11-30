@@ -5,12 +5,12 @@ from setuptools import find_packages, setup
 # setup the project
 setup(
     name='cmsplugin-forms-builder',
-    version='1.1.0',
+    version='1.1.1',
     description='django-cms plugin for cmsplugin-forms-builder',
     long_description=open('README.md').read(),
     author='Nimbis Services, Inc.',
     author_email='devops@nimbisservices.com',
-    url='https://github.com/nimbis/cmsplugin-forms-builder/',
+    url='https://github.com/natgeosociety/cmsplugin-forms-builder/',
     packages=find_packages(exclude=["tests", ]),
     license='BSD',
     classifiers=[
