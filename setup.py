@@ -2,10 +2,14 @@
 
 from setuptools import find_packages, setup
 
+import cmsplugin_forms_builder
+
+version = cmsplugin_forms_builder.get_version()
+
 # setup the project
 setup(
     name='cmsplugin-forms-builder',
-    version='1.1.1',
+    version=version.replace(' ', '-'),
     description='django-cms plugin for cmsplugin-forms-builder',
     long_description=open('README.md').read(),
     author='Nimbis Services, Inc.',
