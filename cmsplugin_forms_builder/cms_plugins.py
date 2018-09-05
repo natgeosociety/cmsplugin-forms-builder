@@ -16,6 +16,6 @@ class FormBuilderPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context['form'] = instance.form
-        return context
+        return context.flatten()
 
 plugin_pool.register_plugin(FormBuilderPlugin)
