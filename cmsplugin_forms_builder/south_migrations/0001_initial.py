@@ -9,16 +9,16 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'PluginForm'
-        db.create_table(u'cmsplugin_forms_builder_pluginform', (
-            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+        db.create_table('cmsplugin_forms_builder_pluginform', (
+            ('cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
             ('form', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['forms.Form'])),
         ))
-        db.send_create_signal(u'cmsplugin_forms_builder', ['PluginForm'])
+        db.send_create_signal('cmsplugin_forms_builder', ['PluginForm'])
 
 
     def backwards(self, orm):
         # Deleting model 'PluginForm'
-        db.delete_table(u'cmsplugin_forms_builder_pluginform')
+        db.delete_table('cmsplugin_forms_builder_pluginform')
 
 
     models = {
@@ -26,7 +26,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'CMSPlugin'},
             'changed_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'language': ('django.db.models.fields.CharField', [], {'max_length': '15', 'db_index': 'True'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
@@ -40,15 +40,15 @@ class Migration(SchemaMigration):
         'cms.placeholder': {
             'Meta': {'object_name': 'Placeholder'},
             'default_width': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slot': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'})
         },
-        u'cmsplugin_forms_builder.pluginform': {
+        'cmsplugin_forms_builder.pluginform': {
             'Meta': {'object_name': 'PluginForm', '_ormbases': ['cms.CMSPlugin']},
-            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
-            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['forms.Form']"})
+            'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
+            'form': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['forms.Form']"})
         },
-        u'forms.form': {
+        'forms.form': {
             'Meta': {'object_name': 'Form'},
             'button_text': ('django.db.models.fields.CharField', [], {'default': "u'Submit'", 'max_length': '50'}),
             'email_copies': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
@@ -56,21 +56,21 @@ class Migration(SchemaMigration):
             'email_message': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'email_subject': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'expiry_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'intro': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'login_required': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'publish_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'response': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'send_email': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'sites': ('django.db.models.fields.related.ManyToManyField', [], {'default': '[1]', 'to': u"orm['sites.Site']", 'symmetrical': 'False'}),
+            'sites': ('django.db.models.fields.related.ManyToManyField', [], {'default': '[1]', 'to': "orm['sites.Site']", 'symmetrical': 'False'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '2'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        u'sites.site': {
+        'sites.site': {
             'Meta': {'ordering': "(u'domain',)", 'object_name': 'Site', 'db_table': "u'django_site'"},
             'domain': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         }
     }
