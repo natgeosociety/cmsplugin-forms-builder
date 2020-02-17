@@ -4,8 +4,8 @@ cmsplugin_forms_builder
 """
 
 __version_info__ = {
-    'major': 1,
-    'minor': 2,
+    'major': 2,
+    'minor': 0,
     'micro': 0,
     'releaselevel': 'final',
     'serial': 1
