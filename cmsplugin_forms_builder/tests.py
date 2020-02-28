@@ -22,8 +22,8 @@ class FormTestCase(CMSTestCase):
     def test_plugin(self):
 
         # Read plugin
-        self.assertEquals(self.plugin.form.title, "Test Form")
-        self.assertEquals(self.plugin.form.slug, "testform")
+        self.assertEqual(self.plugin.form.title, "Test Form")
+        self.assertEqual(self.plugin.form.slug, "testform")
 
         # Update plugin
         form = Form.objects.create(
@@ -34,11 +34,11 @@ class FormTestCase(CMSTestCase):
         self.plugin.form = form
         self.plugin.save()
 
-        self.assertEquals(self.plugin.form.title, "New Form")
-        self.assertEquals(self.plugin.form.slug, "newform")
+        self.assertEqual(self.plugin.form.title, "New Form")
+        self.assertEqual(self.plugin.form.slug, "newform")
 
         # Delete plugin
         self.plugin.delete()
         self.plugin = PluginForm.objects.first()
 
-        self.assertEquals(self.plugin, None)
+        self.assertEqual(self.plugin, None)
